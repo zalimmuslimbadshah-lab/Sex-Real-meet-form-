@@ -1,65 +1,35 @@
-// ===============================
-// EmailJS Initialization
-// ===============================
-
 emailjs.init({
-    publicKey: "_rIFWO6xNciuc33Iu"
+    publicKey: "KdITWvbxtYNzhaO6R"
 });
 
-// ===============================
-// Get Elements
-// ===============================
-
 const form = document.getElementById("meetForm");
-const button = document.getElementById("submitBtn");
 const message = document.getElementById("message");
+const button = document.getElementById("submitBtn");
 
-// ===============================
-// Submit Form
-// ===============================
-
-form.addEventListener("submit", function(e){
-
+form.addEventListener("submit", function (e) {
     e.preventDefault();
 
-    message.innerHTML = "";
     button.disabled = true;
     button.innerHTML = "Submitting...";
 
     emailjs.sendForm(
-        "service_qj1swjs",
-        "template_om21cd8",
-        "#meetForm"
-    )
-
-    .then(function(){
-
-        message.style.color="#00ff99";
-        message.innerHTML="✅ Registration Submitted Successfully.";
-
+        "service_wjwo14k",
+        "template_x2lp4q4d",
+        this
+    ).then(function () {
+        message.style.color = "#00ff99";
+        message.innerHTML = "✅ Registration Submitted Successfully!";
         form.reset();
 
-    })
-
-    .catch(function(error){
-
+        button.disabled = false;
+        button.innerHTML = "Submit Registration";
+    }).catch(function (error) {
         console.log(error);
 
-        message.style.color="#ffff66";
+        message.style.color = "#ff4444";
+        message.innerHTML = "❌ " + (error.text || error.message || "Submission Failed");
 
-        message.innerHTML =
-        "❌ " +
-        (error.text ||
-        error.message ||
-        JSON.stringify(error));
-
-    })
-
-    .finally(function(){
-
-        button.disabled=false;
-        button.innerHTML="Submit Registration";
-
+        button.disabled = false;
+        button.innerHTML = "Submit Registration";
     });
-
 });
