@@ -27,8 +27,18 @@ form.addEventListener("submit", function(e) {
     })
     .catch(function(error) {
         console.log(error);
+        let errorMsg = "Unknown error";
+        if (error && error.text) {
+            errorMsg = error.text;
+        } else if (error && error.status) {
+            errorMsg = "Status: " + error.status;
+        } else {
+            errorMsg = JSON.stringify(error);
+        }
+
         message.style.color = "#ffff66";
-        message.innerHTML = "❌ Failed! Please try again.";
+        message.innerHTML = "❌ Failed: " + errorMsg;
+        
         button.disabled = false;
         button.innerHTML = "Submit Registration";
     });
