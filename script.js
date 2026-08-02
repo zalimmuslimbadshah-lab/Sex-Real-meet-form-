@@ -1,6 +1,6 @@
 // EmailJS Initialize
 emailjs.init({
-    publicKey: "VIA6JYbk5Au4-4VQ2"
+    publicKey: "_IFWO6xNciuc33Iu"
 });
 
 const form = document.getElementById("meetForm");
