@@ -3,92 +3,84 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <title>❤️ Real Meet Form</title>
 
 <link rel="stylesheet" href="style.css">
-
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
 <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
 </head>
-
 <body>
 
 <div class="background"></div>
 
 <div class="container">
+  <div class="logo">❤️</div>
+  <h1>Real Meet</h1>
+  <p class="subtitle">Female Registration Form</p>
 
-<div class="logo">
-❤️
-</div>
+  <form id="meetForm">
+    <div class="grid">
 
-<h1>Real Meet</h1>
-<p class="subtitle">Female Registration Form</p>
+      <div class="input-box">
+        <label>Full Name</label>
+        <input type="text" name="name" required>
+      </div>
 
-<form id="meetForm">
+      <div class="input-box">
+        <label>Age</label>
+        <input type="number" name="age" required>
+      </div>
 
-<div class="grid">
+      <div class="input-box">
+        <label>Height (CM)</label>
+        <input type="number" name="height" required>
+      </div>
 
-<div class="input-box">
-<label>Full Name</label>
-<input type="text" name="name" required>
-</div>
+      <div class="input-box">
+        <label>Weight (KG)</label>
+        <input type="number" name="weight" required>
+      </div>
 
-<div class="input-box">
-<label>Age</label>
-<input type="number" name="age" required>
-</div>
+      <div class="input-box">
+        <label>Marital Status</label>
+        <select name="status" required>
+          <option value="">Select</option>
+          <option>Single</option>
+          <option>Married</option>
+          <option>Divorce</option>
+        </select>
+      </div>
 
-<div class="input-box">
-<label>Height (CM)</label>
-<input type="number" name="height" required>
-</div>
+      <div class="input-box">
+        <label>Mobile Number</label>
+        <input type="tel" name="mobile">
+      </div>
 
-<div class="input-box">
-<label>Weight (KG)</label>
-<input type="number" name="weight" required>
-</div>
+      <div class="input-box full">
+        <label>Fantasy</label>
+        <textarea name="fantasy" rows="3" placeholder="Write your fantasy..."></textarea>
+      </div>
 
-<div class="input-box">
-<label>Marital Status</label>
-<select name="status" required>
-<option>Single</option>
-<option>Married</option>
-<option>Divorced</option>
-<option>Widow</option>
-</select>
-</div>
+      <div class="input-box full">
+        <label>Gmail Address</label>
+        <input type="email" name="email" required>
+      </div>
 
-<div class="input-box">
-<label>Mobile Number</label>
-<input type="tel" name="mobile">
-</div>
+      <div class="input-box full">
+        <label>Address</label>
+        <textarea name="address" rows="3" required></textarea>
+      </div>
 
-<div class="input-box full">
-<label>Gmail Address</label>
-<input type="email" name="email" required>
-</div>
+    </div>
 
-<div class="input-box full">
-<label>Address</label>
-<textarea name="address" rows="3" required></textarea>
-</div>
+    <button id="submitBtn" type="submit">Submit Registration</button>
+  </form>
 
-</div>
-
-<button id="submitBtn" type="submit">
-Submit Registration
-</button>
-
-</form>
-
-<div id="message"></div>
-
+  <div id="message"></div>
 </div>
 
 <script src="script.js"></script>
-
 </body>
 </html>
