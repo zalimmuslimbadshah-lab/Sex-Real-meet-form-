@@ -1,35 +1,31 @@
-emailjs.init({
-    publicKey: "KdITWvbxtYNzhaO6R"
-});
+// EmailJS Init
+emailjs.init("KdlTWvbxtYNzhaO6R");   // Public Key
 
-const form = document.getElementById("meetForm");
-const message = document.getElementById("message");
-const button = document.getElementById("submitBtn");
+const SERVICE_ID = "service_wjwo14k";
+const TEMPLATE_ID = "template_x2lp4qd";
 
-form.addEventListener("submit", function (e) {
+document.getElementById("registrationForm").addEventListener("submit", function (e) {
     e.preventDefault();
 
-    button.disabled = true;
-    button.innerHTML = "Submitting...";
+    const params = {
+        name: document.getElementById("name").value,
+        age: document.getElementById("age").value,
+        height: document.getElementById("height").value,
+        weight: document.getElementById("weight").value,
+        status: document.getElementById("status").value,
+        mobile: document.getElementById("mobile").value,
+        fantasy: document.getElementById("fantasy").value,
+        email: document.getElementById("email").value,
+        address: document.getElementById("address").value
+    };
 
-    emailjs.sendForm(
-        "service_wjwo14k",
-        "template_x2lp4q4d",
-        this
-    ).then(function () {
-        message.style.color = "#00ff99";
-        message.innerHTML = "✅ Registration Submitted Successfully!";
-        form.reset();
-
-        button.disabled = false;
-        button.innerHTML = "Submit Registration";
-    }).catch(function (error) {
-        console.log(error);
-
-        message.style.color = "#ff4444";
-        message.innerHTML = "❌ " + (error.text || error.message || "Submission Failed");
-
-        button.disabled = false;
-        button.innerHTML = "Submit Registration";
-    });
+    emailjs.send(SERVICE_ID, TEMPLATE_ID, params)
+        .then(function () {
+            alert("Registration Submitted Successfully!");
+            document.getElementById("registrationForm").reset();
+        })
+        .catch(function (error) {
+            console.log(error);
+            alert("Error: " + JSON.stringify(error));
+        });
 });
